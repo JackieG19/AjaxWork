@@ -25,14 +25,13 @@
         // 1. type of request, 2. url or filename, 3. if asynchronous (true) or not(false)
         xhr.open('GET', 'sample.txt', true);
         
-        xhr.onload = function(){ 
-          // check for the status of the response
-          if(this.status == 200){ // if the status of rhe xhr equals ok
-              
-              // to get the response from the sample.txt file
-              console.log(this.responseText); 
-              
-          }
+        xhr.onreadystatechange = function() {
+            
+            // going to check for the status and the ready state
+            if(this.readyState == 4 && this.status == 200){
+            // if the readyState of xhr request is finished and response is ready, and the status is ok
+                console.log(this.responseText);
+            }
         };
         xhr.send(); // send request 
     }
