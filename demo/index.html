@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <h2>Using Ajax and XML HTTP Request</h2>
+    <div id="demo">
+        <button type="button" onclick="loadXMLDoc()">load content asynchronously</button>
+        
+    </div>
+</body>
+<script>
+    function loadXMLDoc(){
+        var xhttp = new XMLHttpRequest(); // the http request already exist in the library
+        xhttp.onreadystatechange = function() {
+            // the event handler will fire every time the readyState property of the XMLHttpRequest changes
+            
+            if(this.readyState == 4 && this.status == 200){
+            // if the xhttp == done and xhttp response status code == ok
+                
+                document.getElementById("demo").innerHTML =
+                // grab the element with the id name demo inside the html file
+                
+                this.responseText;  
+            }
+        };
+        xhttp.open("GET", "myfile.txt", true);
+        
+        xhttp.send();
+    }
+</script>
+</html>
