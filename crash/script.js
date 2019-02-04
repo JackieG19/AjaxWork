@@ -1,13 +1,11 @@
-// create an event listener to catch the click of the button
 document.getElementById("button").addEventListener('click', loadText);
-// add an event listener to listen for a click on this button 
-//and once its click run a loadText function
+// create an event listener to catch the click of the button
+
 function loadText(){
 //console.log('button clicked'); it works
        
 // creating the XHR object
     var xhr = new XMLHttpRequest(); 
-    //console.log(xhr); it works
     // use the OPEN function that takes in 3 parameter: 
     // 1. type of request, 2. url or filename, 3. if asynchronous (true) or not(false)
     xhr.open('GET', 'sample.txt', true);
@@ -21,17 +19,18 @@ function loadText(){
        // 3. this is processing the request
     };
         
-   xhr.onload = function(){ 
+    xhr.onload = function(){ 
         // 4. request is finished and response is ready
         console.log('READYSTATE:', xhr.readyState);  
        
             // check for the status of the response
-            if(this.status == 200){ // if the status of rhe xhr equals ok
-              
-            // to get the response from the sample.txt file
-            console.log(this.responseText); 
-              
-          }
+        if(this.status == 200){ // if the status of rhe xhr equals ok
+            document.getElementById('text').innerHTML = this.responseText;
+            // asynchronously loads the text of the smiple.txt file on to the html page
+         }
+         else if(this.status == 404){
+            document.getElementById('text').innerHTML = 'Not Found';
+         }
    };
    // you want to have this handler in case something goes wrong
    xhr.onerror = function(){
