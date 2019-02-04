@@ -15,5 +15,15 @@
     ('click', loadText);
     // add an event listener to listen for a click on this button 
     //and once its click run a loadText function
+      function loadText(){
+        //console.log('button clicked'); it works
+       
+        // creating the XHR object
+        var xhr = new XMLHttpRequest(); 
+        //console.log(xhr); it works
+        // use the OPEN function that takes in 3 parameter: 
+        // 1. type of request, 2. url or filename, 3. if asynchronous (true) or not(false)
+        xhr.open('GET', 'sample.txt', true);
+    }
 </script>
 </html>
