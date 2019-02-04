@@ -33,5 +33,10 @@ function loadText(){
               
           }
    };
+   // you want to have this handler in case something goes wrong
+   xhr.onerror = function(){
+     console.log('Request Error...');  
+   };
+   
         xhr.send(); // send request 
-    }
+}
