@@ -9,31 +9,5 @@
 <body>
     <button id="button">Get text</button>
 </body>
-<script>
-    // create an event listener to catch the click of the button
-    document.getElementById("button").addEventListener
-    ('click', loadText);
-    // add an event listener to listen for a click on this button 
-    //and once its click run a loadText function
-    function loadText(){
-        //console.log('button clicked'); it works
-       
-        // creating the XHR object
-        var xhr = new XMLHttpRequest(); 
-        //console.log(xhr); it works
-        // use the OPEN function that takes in 3 parameter: 
-        // 1. type of request, 2. url or filename, 3. if asynchronous (true) or not(false)
-        xhr.open('GET', 'sample.txt', true);
-        
-        xhr.onreadystatechange = function() {
-            
-            // going to check for the status and the ready state
-            if(this.readyState == 4 && this.status == 200){
-            // if the readyState of xhr request is finished and response is ready, and the status is ok
-                console.log(this.responseText);
-            }
-        };
-        xhr.send(); // send request 
-    }
-</script>
+<script type="text/javascript" src="script.js"></script>
 </html>
