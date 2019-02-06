@@ -26,16 +26,23 @@
         
         xhr.onload = function(){
             if(this.status == 200){
-                var user = JSON.parse(this.responseText);
                 // wrap this up in a fucntion called JSON.parse to access the values in the user.json file 
-                console.log(user.name); //this will print out the name inside the json object 
+                var user = JSON.parse(this.responseText);
+                // 1. Fetched data fron the json file asynchronously
+                
+                var output = ''; // initialize with an empty value
+                // 2. built a template string
+                // then append on to it; 
+                output += '<ul>' + // output html string
+                '<li>ID: '+user.id+'</li>' +
+                '<li>Name: '+user.name+'</li>' +
+                '<li>Email: '+user.email+'</li>' +
+                '</ul>'; 
+                document.getElementById('user').innerHTML = output;
+                // 3. output it into the browser without having to reload the page
             }
         };
         xhr.send();
     }
-    
-    // Note: You can request JSON from the server by using an AJAX request
-    // As long as the response from the server is written in JSON format, 
-    // you can parse the string into a JavaScript object.
 </script>
 </html>
