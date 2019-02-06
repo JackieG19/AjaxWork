@@ -26,10 +26,16 @@
         
         xhr.onload = function(){
             if(this.status == 200){
-                console.log(this.responseText);
+                var user = JSON.parse(this.responseText);
+                // wrap this up in a fucntion called JSON.parse to access the values in the user.json file 
+                console.log(user.name); //this will print out the name inside the json object 
             }
         };
         xhr.send();
     }
+    
+    // Note: You can request JSON from the server by using an AJAX request
+    // As long as the response from the server is written in JSON format, 
+    // you can parse the string into a JavaScript object.
 </script>
 </html>
