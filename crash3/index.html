@@ -13,6 +13,12 @@
     <div id="users"></div>
 </body>
 <script>
-    document.getElementById('button').addEventListener('click');
+    document.getElementById('button').addEventListener('click', loadUsers);
+    
+    // Load Github Users
+    function loadUsers(){
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', 'https://api.github.com/users', true);
+    }
 </script>
 </html>
