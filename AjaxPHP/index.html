@@ -8,13 +8,19 @@
 </head>
 <body>
     <button id="button">Get Name</button>
+    <hr>
+    <h1>Get Form</h1>
+    <form method="GET" action="proccess.php">
+        <input type="text" name="name"/>
+        <input type="submit" value="Submit"/>
+    </form>
 </body>
 <script>
     document.getElementById('button').addEventListener('click', getName);
     
     function getName(){
         var xhr = new XMLHttpRequest();
-        xhr.open('GET', 'proccess.php?name=Brad', true);
+        xhr.open('GET', 'proccess.php?', true);
         
         xhr.onload = function(){
           console.log(this.responseText);  
