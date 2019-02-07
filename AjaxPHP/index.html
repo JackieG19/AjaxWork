@@ -14,13 +14,27 @@
         <input type="text" name="name"/>
         <input type="submit" value="Submit"/>
     </form>
+    
+    <h1>Ajax Get Form</h1>
+    <form id="getForm">
+        <input type="text" name="name" id="name1"/>
+        <input type="submit" value="Submit"/>
+    </form>
 </body>
 <script>
     document.getElementById('button').addEventListener('click', getName);
-    
-    function getName(){
+    document.getElementById('getForm').addEventListener('submit', getName);
+    // 1. when the form is submitted by default its gonna try to go to a new file
+    function getName(e){ // 2. pass in an event parameter
+        e.preventDefault(); // 3. and stop it from happening 
+        
+        // now to get the value of the input of Ajax get form
+        var name = document.getElementById('name1').value;
+        
         var xhr = new XMLHttpRequest();
-        xhr.open('GET', 'proccess.php?', true);
+        xhr.open('GET', 'proccess.php?name='+name, true);
+        // this will proccess the AjaxGetForm input in the console and not output it to the webpage
+        // and will output the proccess of the GetForm input on to  the webpage
         
         xhr.onload = function(){
           console.log(this.responseText);  
