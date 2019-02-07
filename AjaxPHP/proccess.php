@@ -1,12 +1,13 @@
 <?php
 echo 'processing...';
 
-// check for GET variable
+// check for POST variable
+if(isset($_POST['name'])){
+    echo 'POST: Your name is '.$_POST['name'];
+} // its redirecting to the actual php page and its output a new post name
 
-// if(is set(super global[search a variable called name]))
+// check for GET variable
 if(isset($_GET['name'])){
-    
-    // if it exist
     echo 'GET: Your name is '.$_GET['name'];
 }
 
