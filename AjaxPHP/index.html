@@ -47,8 +47,8 @@
         xhr.open('GET', 'proccess.php?name='+name, true);
         
         xhr.onload = function(){
-          console.log(this.responseText);  
         };
+        
         xhr.send();
     }
     
@@ -56,22 +56,18 @@
         e.preventDefault(); 
         
         var name = document.getElementById('name2').value;
-        
-        // this will come from the form in the name variable
+
         var params = "name="+name; 
         
         var xhr = new XMLHttpRequest();
         xhr.open('POST', 'proccess.php', true);
         
         xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-        // The method setRequestHeader() sets the value of an HTTP request header.
-        // Each time you call setRequestHeader() after the first time you call it, 
-        // the specified text is appended to the end of the existing header's content.
         
         xhr.onload = function(){
-          console.log(this.responseText);  
         };
-        xhr.send(params); // passing in the params variable
+        
+        xhr.send(params);
     }
 </script>
 </html>
